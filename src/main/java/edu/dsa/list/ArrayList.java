@@ -40,8 +40,8 @@ public class ArrayList<E> implements List<E> {
 
     protected void extend(){
         E[] expanded = (E[]) new Object[arr.length*2];
-        for(int i = 0; i < size; i++){
-            expanded[i] = arr[i];
+        if (size >= 0) {
+            System.arraycopy(arr, 0, expanded, 0, size);
         }
         arr = expanded;
     }
