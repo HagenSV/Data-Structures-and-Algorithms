@@ -2,9 +2,38 @@ package edu.dsa.list;
 
 import org.junit.jupiter.api.Test;
 
+import java.lang.reflect.Array;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayListTest {
+
+    @Test
+    void testCapacity(){
+        ArrayList<String> list = new ArrayList<>(20);
+        assertEquals(20,list.getCapacity());
+    }
+
+    @Test
+    void testCapacityNegative(){
+        try {
+            ArrayList<String> list = new ArrayList<>(-1);
+            fail();
+        } catch (NegativeArraySizeException ignored){}
+    }
+
+    @Test
+    void testCapacityZero(){
+        ArrayList<String> list = new ArrayList<>(0);
+        list.add("Hello");
+    }
+
+    @Test
+    void testGrow(){
+        ArrayList<String> list = new ArrayList<>(20);
+        list.extend();
+        assertEquals(40,list.getCapacity());
+    }
 
     @Test
     void testSizeAdd(){
