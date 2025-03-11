@@ -13,10 +13,18 @@ public class ArrayList<E> implements List<E> {
     private E[] arr;
     private int size;
 
+    /**
+     * Creates a new ArrayList with the default initial capacity
+     */
     public ArrayList(){
         this(INITIAL_CAPACITY);
     }
 
+    /**
+     * Creates a new ArrayList with a provided capacity
+     * @param initialCapacity the initial capacity of the list
+     * @throws NegativeArraySizeException if {@code initialCapacity} is negative
+     */
     public ArrayList(int initialCapacity){
         arr = (E[]) new Object[initialCapacity];
         size = 0;
@@ -75,10 +83,10 @@ public class ArrayList<E> implements List<E> {
     @Override
     public E get(int index) {
         if (index < 0){
-            throw new IllegalArgumentException("Index cannot be negative");
+            throw new ArrayIndexOutOfBoundsException("Index cannot be negative");
         }
         if (index >= size()){
-            throw new IllegalArgumentException("Index cannot be larger or equal the size of the array");
+            throw new ArrayIndexOutOfBoundsException("Index cannot be larger or equal the size of the array");
         }
 
         return arr[index];
