@@ -24,8 +24,12 @@ public class ArrayList<E> implements List<E> {
      * Creates a new ArrayList with a provided capacity
      * @param initialCapacity the initial capacity of the list
      * @throws NegativeArraySizeException if {@code initialCapacity} is negative
+     * @throws IllegalArgumentException if {@code initialCapacity} is 0
      */
     public ArrayList(int initialCapacity){
+        if (initialCapacity == 0){
+            throw new IllegalArgumentException("initialCapacity cannot be 0");
+        }
         arr = (E[]) new Object[initialCapacity];
         size = 0;
     }
