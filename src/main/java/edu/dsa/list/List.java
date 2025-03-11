@@ -37,6 +37,7 @@ public interface List<E> {
      * Gets the value at an index
      * @param index index to get
      * @return value stored at the given index
+     * @throws ArrayIndexOutOfBoundsException if provided index is invalid
      */
     E get(int index);
 
@@ -71,6 +72,7 @@ public interface List<E> {
      * Removes the element at a given index
      * @param index the index to remove
      * @return the value stored at that index
+     * @throws ArrayIndexOutOfBoundsException if index is out of range (< 0 or >= size())
      */
     E remove(int index);
 
@@ -79,6 +81,7 @@ public interface List<E> {
      * @param index the index to set
      * @param element the new value
      * @return the previous value stored in that position
+     * @throws ArrayIndexOutOfBoundsException if index is out of range (< 0 or >= size())
      */
     E set(int index, E element);
 
