@@ -2,8 +2,6 @@ package edu.dsa.list;
 
 import org.junit.jupiter.api.Test;
 
-import java.lang.reflect.Array;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class ArrayListTest {
@@ -17,14 +15,14 @@ class ArrayListTest {
     @Test
     void testCapacityNegative(){
         try {
-            ArrayList<String> list = new ArrayList<>(-1);
+            new ArrayList<>(-1);
             fail();
         } catch (NegativeArraySizeException ignored){}
     }
 
     @Test
     void testCapacityZero(){
-        ArrayList<String> list = new ArrayList<>(0);
+        List<String> list = new ArrayList<>(0);
         list.add("Hello");
     }
 
