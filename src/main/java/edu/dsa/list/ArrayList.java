@@ -22,11 +22,15 @@ public class ArrayList<E> implements List<E> {
         size = 0;
     }
 
-    private boolean noSpaceAvailable(){
-        return size() >= arr.length;
+    protected int getCapacity(){
+        return arr.length;
     }
 
-    private void extend(){
+    protected boolean noSpaceAvailable(){
+        return size() >= getCapacity();
+    }
+
+    protected void extend(){
         E[] expanded = (E[]) new Object[arr.length*2];
         for(int i = 0; i < size; i++){
             expanded[i] = arr[i];
