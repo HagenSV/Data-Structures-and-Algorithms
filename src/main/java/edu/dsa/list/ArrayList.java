@@ -10,15 +10,15 @@ public class ArrayList<E> implements List<E> {
 
     private static final int INITIAL_CAPACITY = 10;
 
-    Object[] arr;
-    int size;
+    private E[] arr;
+    private int size;
 
     public ArrayList(){
         this(INITIAL_CAPACITY);
     }
 
     public ArrayList(int initialCapacity){
-        arr = new Object[initialCapacity];
+        arr = (E[]) new Object[initialCapacity];
         size = 0;
     }
 
@@ -27,7 +27,7 @@ public class ArrayList<E> implements List<E> {
     }
 
     private void extend(){
-        Object[] expanded = new Object[arr.length*2];
+        E[] expanded = (E[]) new Object[arr.length*2];
         for(int i = 0; i < size; i++){
             expanded[i] = arr[i];
         }
@@ -81,7 +81,7 @@ public class ArrayList<E> implements List<E> {
             throw new IllegalArgumentException("Index cannot be larger or equal the size of the array");
         }
 
-        return (E)arr[index];
+        return arr[index];
     }
 
     @Override
@@ -125,7 +125,7 @@ public class ArrayList<E> implements List<E> {
         if (index >= size()){
             throw new ArrayIndexOutOfBoundsException("Index cannot be larger or equal the size of the array");
         }
-        E oldVal = (E) arr[index];
+        E oldVal = arr[index];
         for (int i = index; i < size(); i++){
             arr[i] = arr[i+1];
         }
@@ -141,7 +141,7 @@ public class ArrayList<E> implements List<E> {
         if (index >= size()){
             throw new ArrayIndexOutOfBoundsException("Index cannot be larger or equal the size of the array");
         }
-        E oldVal = (E) arr[index];
+        E oldVal = arr[index];
         arr[index] = element;
         return oldVal;
     }
