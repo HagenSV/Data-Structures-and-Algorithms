@@ -22,8 +22,10 @@ class ArrayListTest {
 
     @Test
     void testCapacityZero(){
-        List<String> list = new ArrayList<>(0);
-        list.add("Hello");
+        try {
+            List<String> list = new ArrayList<>(0);
+            fail();
+        } catch (IllegalArgumentException ignored){}
     }
 
     @Test
