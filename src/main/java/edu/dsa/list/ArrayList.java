@@ -40,11 +40,7 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public boolean add(E e) {
-        if (noSpaceAvailable()){
-            extend();
-        }
-        arr[size()] = e;
-        size++;
+        add(size(), e);
         return true;
     }
 
