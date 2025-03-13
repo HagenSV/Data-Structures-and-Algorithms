@@ -25,8 +25,8 @@ In this repository, I will implement various Data Structures and Algorithms as I
 ### Interesting Problems
 I came across an interesting problem when developing my custom ArrayList implementation.
 **When the array runs out of capacity, how much should it be expanded by?**
-Expanding the capacity by one every single time results in maximum space efficiency, at the cost of speed.
-It turns an operation which could be `O(1)` into an `O(n)` operation every time, which is not acceptable.
+Expanding the capacity by one every single time results in improved space efficiency, assuring the array is never larger than it needs to be.
+This decision comes at the cost of speed, turning an operation which could be `O(1)` into an `O(n)` operation every time, which is not acceptable.
 For now, I went with expanding the array to 2x its previous size.
 When I come up with realistic use cases for ArrayLists, I will revisit this growth factor to possibly better tune it for speed and memory efficiency.
 
