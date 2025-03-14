@@ -90,4 +90,18 @@ public interface List<E> {
      * @return the size of the list
      */
     int size();
+
+    /**
+     * Validates a given list index
+     * @param idx index to check
+     * @throws ArrayIndexOutOfBoundsException if index is less than 0 or greater than or equal to {@code list.size()}
+     */
+    default void validateIndex(int idx){
+        if (idx < 0){
+            throw new ArrayIndexOutOfBoundsException("Index cannot be negative");
+        }
+        if (idx >= size()) {
+            throw new ArrayIndexOutOfBoundsException("Index is too large");
+        }
+    }
 }
