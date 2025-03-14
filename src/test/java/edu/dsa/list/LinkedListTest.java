@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class LinkedListTest {
     @Test
     void testSizeAdd(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         assertEquals(0,list.size());
         list.add(10);
         assertEquals(1,list.size());
@@ -17,7 +17,7 @@ class LinkedListTest {
 
     @Test
     void testAdd(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -26,7 +26,7 @@ class LinkedListTest {
 
     @Test
     void testInsert(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 10; i++){
             list.add(0,i);
         }
@@ -35,7 +35,7 @@ class LinkedListTest {
 
     @Test
     void testInsertNegative(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         try {
             list.add(-1, 10);
             fail();
@@ -44,7 +44,7 @@ class LinkedListTest {
 
     @Test
     void testInsertOutOfBounds(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         try {
             list.add(10,10);
             fail();
@@ -55,13 +55,13 @@ class LinkedListTest {
 
     @Test
     void testEmpty(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         assertTrue(list.isEmpty());
     }
 
     @Test
     void testClear(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 10; i++){
             list.add(0,i);
         }
@@ -71,7 +71,7 @@ class LinkedListTest {
 
     @Test
     void testContains(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -80,7 +80,7 @@ class LinkedListTest {
 
     @Test
     void testNotContains(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -89,7 +89,7 @@ class LinkedListTest {
 
     @Test
     void testIndexOf(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -98,7 +98,7 @@ class LinkedListTest {
 
     @Test
     void testLastIndexOf(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i%10);
         }
@@ -107,7 +107,7 @@ class LinkedListTest {
 
     @Test
     void testIndexNotFound(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -116,7 +116,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -125,7 +125,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveNegativeIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -137,7 +137,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveLargeIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -149,7 +149,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveIndexReduceSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -159,7 +159,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveValue(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -169,7 +169,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveMissingValue(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -178,7 +178,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveValueReduceSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -188,7 +188,7 @@ class LinkedListTest {
 
     @Test
     void testRemoveMissingValueRetainSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -198,7 +198,7 @@ class LinkedListTest {
 
     @Test
     void testSet(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -209,7 +209,7 @@ class LinkedListTest {
 
     @Test
     void testSetNegative(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -221,7 +221,7 @@ class LinkedListTest {
 
     @Test
     void testSetOutOfBounds(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new LinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
