@@ -4,6 +4,7 @@ Recruiters, feel free to quiz me on any of the algorithms I have implemented.
 
 In this repository, I will implement various Data Structures and Algorithms as I see fit.
 ## Planned Features
+Click on an item to read more
 **Data Structures**
 - [ ] [Lists](./docs/Lists.md)
   - [x] ArrayList
