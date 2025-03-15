@@ -31,6 +31,7 @@ public class DoubleLinkedList<E> implements List<E> {
      * @param element element to insert
      */
     @Override
+    //TODO: rework method to take advantage of doubly linked list properties
     public void add(int index, E element) {
         //Do not use validate index if index == size();
         //In this case index == size is a valid input
@@ -84,6 +85,7 @@ public class DoubleLinkedList<E> implements List<E> {
      * @throws ArrayIndexOutOfBoundsException if provided index is invalid
      */
     @Override
+    //TODO: rework method to take advantage of doubly linked list properties
     public E get(int index) {
         validateIndex(index);
         ListNode<E> curr = first.next;
@@ -128,6 +130,7 @@ public class DoubleLinkedList<E> implements List<E> {
      * @return the index of the last occurrence of the value or -1 if the value does not exist
      */
     @Override
+    //TODO: rework method to take advantage of doubly linked list properties
     public int lastIndexOf(Object o) {
         ListNode<E> node = first.next;
         int lastIdx = -1;
@@ -171,6 +174,7 @@ public class DoubleLinkedList<E> implements List<E> {
      * @throws ArrayIndexOutOfBoundsException if index is out of range (< 0 or >= size())
      */
     @Override
+    //TODO: rework method to take advantage of doubly linked list properties
     public E remove(int index) {
         validateIndex(index);
         ListNode<E> curr = first.next;
@@ -194,6 +198,7 @@ public class DoubleLinkedList<E> implements List<E> {
      * @throws ArrayIndexOutOfBoundsException if index is out of range (< 0 or >= size())
      */
     @Override
+    //TODO: rework method to take advantage of doubly linked list properties
     public E set(int index, E element) {
         validateIndex(index);
         ListNode<E> curr = first.next;
