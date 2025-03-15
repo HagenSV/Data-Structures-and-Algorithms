@@ -23,8 +23,9 @@ Therefore, for now at least, I've decided to prohibit an initial capacity of zer
 ### Use Cases
 Appending and accessing elements to an ArrayList is a constant time operation, `O(1)`.
 This makes ArrayLists great for use cases where you are storing and accessing data, especially when you don't know how much data will be stored.
-Meanwhile, remove items is O(n), except when removing items from the end of the list.
-Removing from the end of the list (index `size()-1`) is constant time, making ArrayLists perfect for implementing stack data structures.
+Meanwhile, removing items is O(n), unless you removing items from the end of the list.
+Removing from the end of the list (index `size()-1`) is constant time.
+This behavior makes ArrayLists perfect for implementing stack data structures.
 
 ---
 
@@ -32,16 +33,16 @@ Removing from the end of the list (index `size()-1`) is constant time, making Ar
 
 A LinkedList is a list implementation that stores data in nodes.
 Each node contains a single value with a reference to the next node in the list.
-This makes LinkedLists much more efficient for adding and removing elements than ArrayLists.
-When appending an element, the array managed by the ArrayList may need to grow, which is an `O(n)` operation.
-When appending an element to a LinkedList, the operation is always `O(1)`, all you need is to update the last node in the list to point to the new node as the last node.
-Similarly, when removing an element from an ArrayList, each subsequent value in the array needs to be shifted down by 1, which is an `O(n)` operation.
-When removing an element from a LinkedList, the operation is always `O(1)`, all you need.
 
 ### ArrayList vs LinkedList
 ArrayLists and LinkedLists are both List implementations, but they have different performance characteristics.
-ArrayLists store data in arrays, making them more efficient for accessing elements by index.
+ArrayLists store data in arrays, allowing them to access elements by index in constant time, `O(1)`.
 On the other hand, LinkedLists store data in nodes, making them more efficient for adding and removing elements.
+When appending an element to and ArrayList, the array may need to grow, which is an `O(n)` operation.
+When appending an element to a LinkedList, the operation is always `O(1)`, all you need to do is to update the last node in the list to point to the new node as the last node.
+Similarly, when removing an element from an ArrayList, each subsequent value in the array needs to be shifted down by 1, which is an `O(n)` operation.
+When removing an element from a LinkedList, the operation is always `O(1)`.
+
 This gives each list implementation their own unique use cases.
 ArrayLists great for accessing and modifying existing data, while LinkedLists are cases where data is frequently added or deleted.
 
