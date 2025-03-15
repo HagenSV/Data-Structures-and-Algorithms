@@ -27,15 +27,21 @@ Click on an item to read more
 
 When initially creating my List interface, I had the goal of eventually making my List implementations extend the `java.util.List` interface.
 However, I realized that this could be an opportunity to make my own design decisions.
-As of now, my List interface functions as a subset of the `java.util.List` interface, only containing the methods I need for my implementations.
+As of now, my List interface functions as a subset of `java.util.List`, only containing the methods critical for basic list functionality.
 This may change in the future as I make design considerations.
 Take, for example, the `indexOf` method.
 In the java standard library, `indexOf` returns -1 if the element is not found.
-This works fine, but results in repeated checks if the result is -1 when looking for the index of an element.
-This is where monads come to mind. Optional values are a cornerstone of some other languages, but not Java.
-Optional values are rarely encountered when using the java standard library.
+This works fine, but results in repeated checks if the result is -1 when looking for the index of an element. Such as the example below:
+```java
+int index = list.indexOf(element);
+if (index != -1) {
+    // do something with index
+}
+```
+Here, optional values come to mind. Optional values are a cornerstone of some other languages, but not Java.
+Optional values are rarely encountered when using the Java standard library.
 Since I am making my own list implementations, this provides the perfect opportunity to look into using optional values in various ways.
-Perhaps instead of throwing exceptions for bad indexes in methods such as `get`, `remove`, and `set`, I could return an `Optional` value.
+Another use case could be returning Optional values instead of throwing exceptions for bad indexes in methods such as `get`, `remove`, and `set`.
 This would allow the user to check if the value is present before using it, and would be more in line with the functional programming paradigm.
 Is this a good idea? I'm not sure yet, but it's something to consider.
 As of now, `indexOf` returns -1 if the element is not found, and the methods `get`, `remove`, and `set` throw exceptions for bad indexes, keeping in line with the java standard library.
