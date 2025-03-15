@@ -4,40 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class ArrayListTest {
-
-    @Test
-    void testCapacity(){
-        ArrayList<String> list = new ArrayList<>(20);
-        assertEquals(20,list.getCapacity());
-    }
-
-    @Test
-    void testCapacityNegative(){
-        try {
-            new ArrayList<>(-1);
-            fail();
-        } catch (NegativeArraySizeException ignored){}
-    }
-
-    @Test
-    void testCapacityZero(){
-        try {
-            new ArrayList<>(0);
-            fail();
-        } catch (IllegalArgumentException ignored){}
-    }
-
-    @Test
-    void testGrow(){
-        ArrayList<String> list = new ArrayList<>(20);
-        list.extend();
-        assertEquals(40,list.getCapacity());
-    }
+class DoubleLinkedListTest {
 
     @Test
     void testSizeAdd(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         assertEquals(0,list.size());
         list.add(10);
         assertEquals(1,list.size());
@@ -47,7 +18,7 @@ class ArrayListTest {
 
     @Test
     void testAdd(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -56,7 +27,7 @@ class ArrayListTest {
 
     @Test
     void testInsert(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 10; i++){
             list.add(0,i);
         }
@@ -65,7 +36,7 @@ class ArrayListTest {
 
     @Test
     void testInsertNegative(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         try {
             list.add(-1, 10);
             fail();
@@ -74,7 +45,7 @@ class ArrayListTest {
 
     @Test
     void testInsertOutOfBounds(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         try {
             list.add(10,10);
             fail();
@@ -85,13 +56,13 @@ class ArrayListTest {
 
     @Test
     void testEmpty(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         assertTrue(list.isEmpty());
     }
 
     @Test
     void testClear(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 10; i++){
             list.add(0,i);
         }
@@ -101,7 +72,7 @@ class ArrayListTest {
 
     @Test
     void testContains(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -110,7 +81,7 @@ class ArrayListTest {
 
     @Test
     void testNotContains(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -119,7 +90,7 @@ class ArrayListTest {
 
     @Test
     void testIndexOf(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -128,7 +99,7 @@ class ArrayListTest {
 
     @Test
     void testLastIndexOf(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i%10);
         }
@@ -137,7 +108,7 @@ class ArrayListTest {
 
     @Test
     void testIndexNotFound(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -146,7 +117,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -155,7 +126,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveNegativeIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -167,7 +138,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveLargeIndex(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -179,7 +150,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveIndexReduceSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -189,7 +160,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveValue(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -199,7 +170,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveMissingValue(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -208,7 +179,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveValueReduceSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -218,7 +189,7 @@ class ArrayListTest {
 
     @Test
     void testRemoveMissingValueRetainSize(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -228,7 +199,7 @@ class ArrayListTest {
 
     @Test
     void testSet(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -239,7 +210,7 @@ class ArrayListTest {
 
     @Test
     void testSetNegative(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
@@ -251,7 +222,7 @@ class ArrayListTest {
 
     @Test
     void testSetOutOfBounds(){
-        List<Integer> list = new ArrayList<>();
+        List<Integer> list = new DoubleLinkedList<>();
         for (int i = 0; i < 50; i++){
             list.add(i);
         }
