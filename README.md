@@ -7,7 +7,7 @@ In this repository, I will implement various Data Structures and Algorithms as I
 **Data Structures**
 - [ ] Lists
   - [x] ArrayList
-  - [ ] LinkedList
+  - [X] LinkedList
   - [ ] DoubleLinkedList
   - [ ] CircularLinkedList
 - [ ] Stack

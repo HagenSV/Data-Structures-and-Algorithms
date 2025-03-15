@@ -58,8 +58,9 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public void add(int index, E element) {
-        if (index < 0) throw new ArrayIndexOutOfBoundsException("Index cannot be negative");
-        if (index > size()) throw new ArrayIndexOutOfBoundsException("Index cannot be greater than the size of the array");
+        if (index != size()) {
+            validateIndex(index);
+        }
         if (noSpaceAvailable()) extend();
 
         for (int i = size(); i > index; i--){
@@ -86,13 +87,7 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E get(int index) {
-        if (index < 0){
-            throw new ArrayIndexOutOfBoundsException("Index cannot be negative");
-        }
-        if (index >= size()){
-            throw new ArrayIndexOutOfBoundsException("Index cannot be larger or equal the size of the array");
-        }
-
+        validateIndex(index);
         return arr[index];
     }
 
@@ -147,12 +142,7 @@ public class ArrayList<E> implements List<E> {
 
     @Override
     public E set(int index, E element) {
-        if (index < 0){
-            throw new ArrayIndexOutOfBoundsException("Index cannot be negative");
-        }
-        if (index >= size()){
-            throw new ArrayIndexOutOfBoundsException("Index cannot be larger or equal the size of the array");
-        }
+        validateIndex(index);
         E oldVal = arr[index];
         arr[index] = element;
         return oldVal;
