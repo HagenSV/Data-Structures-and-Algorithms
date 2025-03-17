@@ -4,9 +4,17 @@ import java.util.Objects;
 
 public class DoubleLinkedList<E> implements List<E> {
 
-    private final ListNode<E> first = new ListNode<>(null);
-    private ListNode<E> last = first;
-    private int size = 0;
+    private final ListNode<E> first;
+    private final ListNode<E> last;
+    private int size;
+
+    public DoubleLinkedList(){
+        first = new ListNode<>(null);
+        last = new ListNode<>(null);
+        first.next = last;
+        last.prev = first;
+        size = 0;
+    }
 
     /**
      * Appends an item to the end of the list
@@ -17,9 +25,10 @@ public class DoubleLinkedList<E> implements List<E> {
     @Override
     public boolean add(E e) {
         ListNode<E> node = new ListNode<>(e);
-        last.next = node;
-        node.prev = last;
-        last = node;
+        last.prev.next = node;
+        node.prev = last.prev;
+        node.next = last;
+        last.prev = node;
         size++;
         return true;
     }
@@ -31,22 +40,36 @@ public class DoubleLinkedList<E> implements List<E> {
      * @param element element to insert
      */
     @Override
-    //TODO: rework method to take advantage of doubly linked list properties
     public void add(int index, E element) {
         //Do not use validate index if index == size();
         //In this case index == size is a valid input
         if (index != size()){
             validateIndex(index);
         }
-        ListNode<E> curr = first;
-        for (int i = 0; i < index; i++){
-            curr = curr.next;
+
+        if (index >= size()/2){
+            ListNode<E> curr = last;
+            for (int i = size(); i > index; i--){
+                curr = curr.prev;
+            }
+            ListNode<E> insert = new ListNode<>(element);
+            insert.next = curr;
+            insert.prev = curr.prev;
+            curr.prev = insert;
+            insert.prev.next = insert;
+            size++;
+        } else {
+            ListNode<E> curr = first;
+            for (int i = 0; i < index; i++){
+                curr = curr.next;
+            }
+            ListNode<E> insert = new ListNode<>(element);
+            insert.next = curr.next;
+            insert.prev = curr;
+            curr.next = insert;
+            insert.next.prev = insert;
+            size++;
         }
-        ListNode<E> insert = new ListNode<>(element);
-        insert.next = curr.next;
-        insert.prev = curr;
-        curr.next = insert;
-        size++;
     }
 
     /**
@@ -55,7 +78,7 @@ public class DoubleLinkedList<E> implements List<E> {
     @Override
     public void clear() {
         first.next = null;
-        last = first;
+        last.prev = null;
         size = 0;
     }
 
@@ -85,9 +108,17 @@ public class DoubleLinkedList<E> implements List<E> {
      * @throws ArrayIndexOutOfBoundsException if provided index is invalid
      */
     @Override
-    //TODO: rework method to take advantage of doubly linked list properties
     public E get(int index) {
         validateIndex(index);
+
+        if (index >= size()/2){
+            ListNode<E> curr = last;
+            for (int i = size(); i > index; i--){
+                curr = curr.prev;
+            }
+            return curr.value;
+        }
+
         ListNode<E> curr = first.next;
         for (int i = 0; i < index; i++) {
             curr = curr.next;
@@ -130,17 +161,15 @@ public class DoubleLinkedList<E> implements List<E> {
      * @return the index of the last occurrence of the value or -1 if the value does not exist
      */
     @Override
-    //TODO: rework method to take advantage of doubly linked list properties
     public int lastIndexOf(Object o) {
-        ListNode<E> node = first.next;
-        int lastIdx = -1;
-        for (int i = 0; i < size(); i++){
+        ListNode<E> node = last.prev;
+        for (int i = size()-1; i >= 0; i--){
             if (Objects.equals(node.value,o)){
-                lastIdx = i;
+                return i;
             }
-            node = node.next;
+            node = node.prev;
         }
-        return lastIdx;
+        return -1;
     }
 
     /**
