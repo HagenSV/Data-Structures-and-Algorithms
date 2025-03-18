@@ -26,6 +26,10 @@ Click on an item to read more
   - [ ] Counting Sort
   - [ ] Radix Sort
   - [ ] Bucket Sort
+- Compression Algorithms
+  - [ ] Huffman Coding
+  - [ ] Run Length Encoding
+  - [ ] LZW Compression
 
 ---
 
