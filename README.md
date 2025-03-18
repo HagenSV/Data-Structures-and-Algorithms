@@ -30,6 +30,11 @@ Click on an item to read more
   - [ ] Huffman Coding
   - [ ] Run Length Encoding
   - [ ] LZW Compression
+- Encryption Algorithms
+  - [ ] Caesar Cipher
+  - [ ] Vigenère Cipher
+  - [ ] Substitution Cipher
+  - [ ] RSA Encryption
 
 ---
 
