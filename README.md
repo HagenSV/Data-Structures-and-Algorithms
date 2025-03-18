@@ -9,7 +9,7 @@ Click on an item to read more
 - [ ] [Lists](./docs/Lists.md)
   - [x] ArrayList
   - [X] LinkedList
-  - [ ] DoubleLinkedList
+  - [X] DoubleLinkedList
   - [ ] CircularLinkedList
 - [ ] Stack
 - [ ] Queue
