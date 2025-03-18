@@ -17,8 +17,14 @@ Click on an item to read more
 
 **Algorithms**
 - [ ] Sorting Algorithms
+  - [ ] Selection Sort
+  - [ ] Bubble Sort
+  - [ ] Insertion Sort
+  - [ ] Quick Sort
   - [ ] Merge Sort
   - [ ] Heap Sort
+  - [ ] Counting Sort
+  - [ ] Radix Sort
   - [ ] Bucket Sort
 
 ---
